@@ -17,6 +17,9 @@ const vocabDeContainer = document.querySelector("#vocabDeContainer") as HTMLDivE
 //Button to clear list
 const emptyVocabBtn = document.querySelector("#emptyVocabBtn") as HTMLButtonElement;
 
+//Button for Fullscreen
+const fullScBtn = document.querySelector("#fullScBtn") as HTMLButtonElement;
+
 //Information to save inside of each Vocabulary (En & De)
 interface VocabEn {
   description: string; //the word
@@ -149,6 +152,13 @@ function emptyVocabList(){
     }
   }
 
+  let elem = document.documentElement as HTMLElement;
+  function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } 
+}
+
 //main function
 function initApp() {
     newVocabBtn.disabled = true;
@@ -159,6 +169,7 @@ function initApp() {
     newVocabEnInput.addEventListener("keydown", enterKeyOnVocabInput);
     newVocabDeInput.addEventListener("keydown", enterKeyOnVocabInput);
     emptyVocabBtn.addEventListener("click", emptyVocabList);
+    fullScBtn.addEventListener("click", openFullscreen);
   }
   
   initApp();
