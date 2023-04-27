@@ -64,11 +64,11 @@ function validateInput() {
   //Messages for User after the check of input (write blue text)
   function setValidatorMessage(message: string, error = false) {
     validatorMessage.innerHTML = message;
-      validatorMessage.style.color = "blue";
+      validatorMessage.style.color = "black";
   }
   const ValidatorMessages = {
     noinput: "Es fehlen noch Eingaben :) ",
-    validinput: "Drücke den Knopf oder Enter um deine Eingabe zu bestätigen!",
+    validinput: "Drücke 'Hinzufügen' oder Enter um deine Eingabe zu bestätigen! Mit 'Liste leeren' entfernst du alle Einträge. ",
   };
 
 let vocabEn: VocabEn[] = [];
