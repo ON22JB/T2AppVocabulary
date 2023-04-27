@@ -18,12 +18,10 @@ const vocabDeContainer = document.querySelector("#vocabDeContainer") as HTMLDivE
 interface VocabEn {
   description: string; //the word
   id: string; //randomized ID
-  timestamp: Date;
 }
 interface VocabDe {
   description: string;
   id: string;
-  timestamp: Date;
 }
 
 //Generating Unique ID
@@ -71,3 +69,42 @@ function validateInput() {
 
 let vocabEn: VocabEn[] = [];
 let vocabDe: VocabDe[] = [];
+
+//Add new Vocabulary (En) 
+function addVocabEn() {
+    //if input not correct:
+    if (!validateInput()) {
+      return; 
+    }
+    const newVocabEn: VocabEn = {
+      description: newVocabEnInput.value, 
+      id: genUniqueId(),
+    };
+    vocabEn.push(newVocabEn);
+  
+    addVocabDe();
+    newVocabEnInput.value = "";
+  }
+  //Add new Vocabulary (De)
+  function addVocabDe() {
+    //if input not correct:
+    if (!validateInput()) {
+      return; 
+    }
+    const timestamp = new Date();
+    const newVocabDe: VocabDe = {
+      description: newVocabDeInput.value,
+      id: genUniqueId(),
+    };
+    vocabDe.push(newVocabDe);
+    newVocabDeInput.value = "";
+  }
+  
+
+//main function
+function initApp() {
+    newVocabBtn.disabled = true;
+  
+  }
+  
+  initApp();
