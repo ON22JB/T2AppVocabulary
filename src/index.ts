@@ -104,7 +104,10 @@ function addVocabEn() {
 //main function
 function initApp() {
     newVocabBtn.disabled = true;
-  
+    newVocabBtn.addEventListener("click", addVocabEn);
+    newVocabEnInput.addEventListener("input", validateInput);
+    newVocabDeInput.addEventListener("input", validateInput);
+    
   }
   
   initApp();
