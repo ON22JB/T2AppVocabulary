@@ -14,6 +14,9 @@ const validatorMessage = document.querySelector("#validatorMessage") as HTMLSpan
 const vocabEnContainer = document.querySelector("#vocabEnContainer") as HTMLDivElement;
 const vocabDeContainer = document.querySelector("#vocabDeContainer") as HTMLDivElement;
 
+//Button to clear list
+const emptyVocabBtn = document.querySelector("#emptyVocabBtn") as HTMLButtonElement;
+
 //Information to save inside of each Vocabulary (En & De)
 interface VocabEn {
   description: string; //the word
@@ -51,6 +54,7 @@ function validateInput() {
     }
     else {
         newVocabBtn.disabled = false;
+        emptyVocabBtn.disabled = false;
       setValidatorMessage(ValidatorMessages.validinput);
       return true;
     }
@@ -131,15 +135,30 @@ function reloadVocabEn() {
     }
   }
 
+  //Clear whole List
+function emptyVocabList(){
+    vocabEnContainer.innerHTML="";
+    vocabDeContainer.innerHTML="";
+    newVocabEnInput.innerHTML = "";
+    newVocabDeInput.innerHTML = "";
+    while(vocabEn.length){
+      vocabEn.pop();
+    }
+    while(vocabDe.length){
+      vocabDe.pop();
+    }
+  }
+
 //main function
 function initApp() {
     newVocabBtn.disabled = true;
     newVocabBtn.addEventListener("click", addVocabEn);
+    emptyVocabBtn.disabled = true;
     newVocabEnInput.addEventListener("input", validateInput);
     newVocabDeInput.addEventListener("input", validateInput);
     newVocabEnInput.addEventListener("keydown", enterKeyOnVocabInput);
     newVocabDeInput.addEventListener("keydown", enterKeyOnVocabInput);
-    
+    emptyVocabBtn.addEventListener("click", emptyVocabList);
   }
   
   initApp();
