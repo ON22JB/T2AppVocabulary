@@ -17,6 +17,9 @@ const vocabDeContainer = document.querySelector("#vocabDeContainer") as HTMLDivE
 //Button to clear list
 const emptyVocabBtn = document.querySelector("#emptyVocabBtn") as HTMLButtonElement;
 
+//Fullscreen Button
+const fullScBtn = document.querySelector("#fullScBtn") as HTMLButtonElement;
+
 //Information to save inside of each Vocabulary (En & De)
 interface VocabEn {
   description: string; //the word
@@ -60,15 +63,14 @@ function validateInput() {
     }
   }
   
-  
   //Messages for User after the check of input (write blue text)
   function setValidatorMessage(message: string, error = false) {
     validatorMessage.innerHTML = message;
-      validatorMessage.style.color = "blue";
+      validatorMessage.style.color = "black";
   }
   const ValidatorMessages = {
     noinput: "Es fehlen noch Eingaben :) ",
-    validinput: "Drücke den Knopf oder Enter um deine Eingabe zu bestätigen!",
+    validinput: "Drücke 'Hinzufügen' oder Enter um deine Eingabe zu bestätigen! Mit 'Liste leeren' entfernst du alle Einträge. ",
   };
 
 let vocabEn: VocabEn[] = [];
@@ -149,6 +151,21 @@ function emptyVocabList(){
     }
   }
 
+//Open fullscreen
+let elem = document.documentElement as HTMLElement;
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } 
+}
+
+//print the vocabulary list table
+let printBtn = document.querySelector("#printBtn") as HTMLButtonElement;
+function print() {
+  window.print();
+}
+printBtn.addEventListener("click", print);
+
 //main function
 function initApp() {
     newVocabBtn.disabled = true;
@@ -159,6 +176,7 @@ function initApp() {
     newVocabEnInput.addEventListener("keydown", enterKeyOnVocabInput);
     newVocabDeInput.addEventListener("keydown", enterKeyOnVocabInput);
     emptyVocabBtn.addEventListener("click", emptyVocabList);
+    fullScBtn.addEventListener("click", openFullscreen);
   }
   
   initApp();
