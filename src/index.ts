@@ -26,6 +26,19 @@ interface VocabDe {
   timestamp: Date;
 }
 
+//Generating Unique ID
+function genUniqueId(): string {
+    const dateStr = Date
+      .now()
+      .toString(36); 
+    const randomStr = Math
+      .random()
+      .toString(36)
+      .substring(2, 8);
+  
+    return `${dateStr}-${randomStr}`;
+  }
+
 //Check if input field has an input 
 function validateInput() {
     if (!newVocabEnInput.value) {
@@ -55,3 +68,6 @@ function validateInput() {
     noinput: "Es fehlen noch Eingaben :) ",
     validinput: "Drücke den Knopf oder Enter um deine Eingabe zu bestätigen!",
   };
+
+let vocabEn: VocabEn[] = [];
+let vocabDe: VocabDe[] = [];
