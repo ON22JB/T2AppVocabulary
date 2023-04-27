@@ -82,6 +82,7 @@ function addVocabEn() {
     };
     vocabEn.push(newVocabEn);
   
+    reloadVocabEn();
     addVocabDe();
     newVocabEnInput.value = "";
   }
@@ -97,9 +98,31 @@ function addVocabEn() {
       id: genUniqueId(),
     };
     vocabDe.push(newVocabDe);
+    reloadVocabDe();
     newVocabDeInput.value = "";
   }
   
+  //Empty Vocabulary List, Create Container for Vocabulary (En)
+function reloadVocabEn() {
+    vocabEnContainer.innerHTML = "";
+    //sorting Vocabulary
+    vocabEn.forEach((vocabEn) => {
+        const oneVocabEnContainer = document.createElement("div");
+        oneVocabEnContainer.id = vocabEn.id;
+        oneVocabEnContainer.innerHTML = vocabEn.description;
+        vocabEnContainer.appendChild(oneVocabEnContainer);
+      });}
+  
+  //Empty Vocabulary List, Create Container for Vocabulary (De)
+      function reloadVocabDe() {
+        vocabDeContainer.innerHTML = "";
+      vocabDe.forEach((vocabDe) => {
+        const oneVocabDeContainer = document.createElement("div");
+        oneVocabDeContainer.id = vocabDe.id;
+        oneVocabDeContainer.innerHTML = vocabDe.description;
+        vocabDeContainer.appendChild(oneVocabDeContainer);
+      });
+  }
 
 //main function
 function initApp() {
