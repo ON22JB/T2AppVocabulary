@@ -124,12 +124,21 @@ function reloadVocabEn() {
       });
   }
 
+  function enterKeyOnVocabInput(e: KeyboardEvent) {
+    if (e.key === "Enter") {
+      addVocabEn();
+      addVocabDe(); 
+    }
+  }
+
 //main function
 function initApp() {
     newVocabBtn.disabled = true;
     newVocabBtn.addEventListener("click", addVocabEn);
     newVocabEnInput.addEventListener("input", validateInput);
     newVocabDeInput.addEventListener("input", validateInput);
+    newVocabEnInput.addEventListener("keydown", enterKeyOnVocabInput);
+    newVocabDeInput.addEventListener("keydown", enterKeyOnVocabInput);
     
   }
   
