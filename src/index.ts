@@ -98,7 +98,6 @@ function addVocabEn() {
     if (!validateInput()) {
       return; 
     }
-    const timestamp = new Date();
     const newVocabDe: VocabDe = {
       description: newVocabDeInput.value,
       id: genUniqueId(),
@@ -150,6 +149,9 @@ function emptyVocabList(){
       vocabDe.pop();
     }
   }
+
+  //Delete Vocab pairs
+  //Here is space for new function to delete single vocab entrees
 
 //Open fullscreen
 let elem = document.documentElement as HTMLElement;

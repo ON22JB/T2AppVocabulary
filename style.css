@@ -160,3 +160,7 @@ table.boostrap4_table_head_dark_striped_rounded_with_shadow tr:last-of-type td:l
     width: 2000px;
   }
 }
+
+#deleteContainer{
+  max-width: 50px;
+}
