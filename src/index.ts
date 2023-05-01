@@ -152,6 +152,15 @@ function emptyVocabList(){
 
   //Delete Vocab pairs
   //Here is space for new function to delete single vocab entrees
+  
+  function changeOnClick() {
+    console.log("test");
+    vocabDe.forEach((vocabDe) => {
+    const oneVocabDeContainer = document.createElement("div");
+    oneVocabDeContainer.innerHTML = "";
+    oneVocabDeContainer.style.backgroundColor = "red";
+    })
+  } 
 
 //Open fullscreen
 let elem = document.documentElement as HTMLElement;
@@ -179,6 +188,7 @@ function initApp() {
     newVocabDeInput.addEventListener("keydown", enterKeyOnVocabInput);
     emptyVocabBtn.addEventListener("click", emptyVocabList);
     fullScBtn.addEventListener("click", openFullscreen);
+    vocabDeContainer.addEventListener("click", changeOnClick);
   }
   
   initApp();

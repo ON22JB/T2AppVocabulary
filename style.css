@@ -74,17 +74,16 @@
     }
   }
   /*links & hover*/
-li a {
+li a, p a  {
   text-decoration: none;
   color:#4984e3;
 }
-li a:hover{
+li a:hover, p a:hover{
   color: #4984e3;
   font-weight:bold;
 }
 
 /*button & input*/
-
 input{
   outline: none;
 }
@@ -156,11 +155,10 @@ table.boostrap4_table_head_dark_striped_rounded_with_shadow tr:last-of-type td:l
   #hidePrint {
     display: none;
   }
-  table.boostrap4_table_head_dark_striped_rounded_with_shadow col{
-    width: 2000px;
+  table.boostrap4_table_head_dark_striped_rounded_with_shadow {
+    width: 200%;
+    box-shadow: none;
+    border-radius: none;
   }
 }
 
-#deleteContainer{
-  max-width: 50px;
-}
