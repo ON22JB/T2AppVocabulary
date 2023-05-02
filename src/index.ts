@@ -110,7 +110,6 @@ function addVocabEn() {
   //Empty Vocabulary List, Create Container for Vocabulary (En)
 function reloadVocabEn() {
     vocabEnContainer.innerHTML = "";
-    //sorting Vocabulary
     vocabEn.forEach((vocabEn) => {
         const oneVocabEnContainer = document.createElement("div");
         oneVocabEnContainer.id = vocabEn.id;
@@ -137,11 +136,13 @@ function reloadVocabEn() {
   }
 
   //Clear whole List
-function emptyVocabList(){
+  function emptyVocabList(){
     vocabEnContainer.innerHTML="";
     vocabDeContainer.innerHTML="";
     newVocabEnInput.innerHTML = "";
     newVocabDeInput.innerHTML = "";
+    newVocabEnInput.value = "";
+    newVocabDeInput.value = "";
     while(vocabEn.length){
       vocabEn.pop();
     }
