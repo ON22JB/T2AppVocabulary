@@ -152,7 +152,7 @@ table.boostrap4_table_head_dark_striped_rounded_with_shadow tr:last-of-type td:l
 
 /*Hide for printing*/
 @media print {
-  #hidePrint {
+  #hidePrint , #saveBtn, #resetBtn{
     display: none;
   }
   table.boostrap4_table_head_dark_striped_rounded_with_shadow {
