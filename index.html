@@ -86,8 +86,8 @@
       <input type="text" style="border-radius: 5px; border-color: #000; border-width: thin; margin:2px;"name="newVocabDeInput" id="newVocabDeInput" placeholder="Deutsch" maxlength = "20" /> <br> 
       </div>
       <div class="container" style="max-width:auto; display: inline-flex; justify-content:center;">
-      <button id="newVocabBtn" class="btn" style="border-radius: 1px; border-color: #4984e3;border-radius: 5px; background-color: #4984e3; color:#fff; margin:5px;">Hinzufügen</button>
-      <button id="emptyVocabBtn" class="btn" style="border-radius: 1px; border-color: #4984e3;border-radius: 5px; background-color: #4984e3; color:#fff; margin:5px;">Liste leeren</button>
+      <button id="newVocabBtn" class="btn" style="border-color: #4984e3;border-radius: 5px; background-color: #4984e3; color:#fff; margin:5px;">Hinzufügen</button>
+      <button id="emptyVocabBtn" class="btn" style="border-color: #4984e3;border-radius: 5px; background-color: #4984e3; color:#fff; margin:5px;">Liste leeren</button>
       </div>
       <br>
       <small><span id="validatorMessage"></span></small>
@@ -105,12 +105,17 @@
         </thead>
         <tbody>
           <tr>
-            <td><div id="vocabEnContainer" ></div></td>
-            <td><div id="vocabDeContainer" ></div></td>
+            <td><div id="vocabEnContainer" contenteditable ></div></td>
+            <td><div id="vocabDeContainer" contenteditable></div></td>
          </tr>
         </tbody>
       </table> <br>
-      </div>
+      <div class="container"  style="max-width:auto; display: inline-flex; justify-content:center;">
+      <button class="btn" id="saveBtn" style="border-color: #4984e3;border-radius: 5px; background-color: #4984e3; color:#fff; margin:5px;" >Save</button>
+<button class="btn" id="resetBtn" style="border-color: #4984e3;border-radius: 5px; background-color: #4984e3; color:#fff; margin:5px;" >Reset</button> <br> <br>
+     </div>
+    </div>
+     </div>
 
       <div class="container" id="hidePrint">
         <div class="card" id="linkToPrint">
