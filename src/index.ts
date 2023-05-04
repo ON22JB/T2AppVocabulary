@@ -184,6 +184,7 @@ function reloadVocabEn() {
     let reset = textEn.innerHTML;
     window.localStorage.clear();
     textEn.innerHTML = reset;
+    emptyVocabList();
 }}
 
 //start of De functions
