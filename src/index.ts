@@ -1,3 +1,6 @@
+import { validateInput } from "./validate";
+import { genUniqueId } from "./generateid";
+
 //Explanation:
 //"En" for English
 //"De" for German
@@ -29,50 +32,7 @@ interface VocabDe {
   description: string;
   id: string;
 }
-
-//Generating Unique ID
-function genUniqueId(): string {
-    const dateStr = Date
-      .now()
-      .toString(36); 
-    const randomStr = Math
-      .random()
-      .toString(36)
-      .substring(2, 8);
   
-    return `${dateStr}-${randomStr}`;
-  }
-
-//Check if input field has an input 
-function validateInput() {
-    if (!newVocabEnInput.value) {
-        newVocabBtn.disabled = true;
-      setValidatorMessage(ValidatorMessages.noinput, true);
-      return false;
-    }
-    if (!newVocabDeInput.value) {
-        newVocabBtn.disabled = true;
-      setValidatorMessage(ValidatorMessages.noinput, true);
-      return false;
-    }
-    else {
-        newVocabBtn.disabled = false;
-        emptyVocabBtn.disabled = false;
-      setValidatorMessage(ValidatorMessages.validinput);
-      return true;
-    }
-  }
-  
-  //Messages for User after the check of input (write blue text)
-  function setValidatorMessage(message: string, error = false) {
-    validatorMessage.innerHTML = message;
-      validatorMessage.style.color = "black";
-  }
-  const ValidatorMessages = {
-    noinput: "Es fehlen noch Eingaben :) ",
-    validinput: "Drücke 'Hinzufügen' oder Enter um deine Eingabe zu bestätigen! Mit 'Liste leeren' entfernst du alle Einträge. ",
-  };
-
 let vocabEn: VocabEn[] = [];
 let vocabDe: VocabDe[] = [];
 
@@ -251,3 +211,5 @@ function initApp() {
   }
   
   initApp();
+
+  export { newVocabEnInput,newVocabBtn, newVocabDeInput, emptyVocabBtn, validatorMessage}
