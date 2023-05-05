@@ -1,5 +1,7 @@
 import { validateInput } from "./validate";
 import { genUniqueId } from "./generateid";
+import { saveChangesEn, saveChangesDe, clearStorageDe, clearStorageEn,  saveBtn, resetBtn } from "./localstoragefunction";
+import { openFullscreen, fullScBtn } from "./features";
 
 //Explanation:
 //"En" for English
@@ -10,18 +12,12 @@ const newVocabEnInput = document.querySelector("#newVocabEnInput") as HTMLInputE
 const newVocabDeInput = document.querySelector("#newVocabDeInput") as HTMLInputElement;
 const newVocabBtn = document.querySelector("#newVocabBtn") as HTMLButtonElement;
 
-//Check if correct input or not with message
-const validatorMessage = document.querySelector("#validatorMessage") as HTMLSpanElement;
-
 //Container to show Vocabulary list
 const vocabEnContainer = document.querySelector("#vocabEnContainer") as HTMLDivElement;
 const vocabDeContainer = document.querySelector("#vocabDeContainer") as HTMLDivElement;
 
 //Button to clear list
 const emptyVocabBtn = document.querySelector("#emptyVocabBtn") as HTMLButtonElement;
-
-//Fullscreen Button
-const fullScBtn = document.querySelector("#fullScBtn") as HTMLButtonElement;
 
 //Information to save inside of each Vocabulary (En & De)
 interface VocabEn {
@@ -111,88 +107,6 @@ function reloadVocabEn() {
     }
   }
 
-//Save and Reset buttons
-  const saveBtn = document.querySelector("#saveBtn") as HTMLButtonElement;
-  const resetBtn = document.querySelector("#resetBtn") as HTMLButtonElement;
-  
-//start of En functions
-  let textEn = document.getElementById('vocabEnContainer');
-  if (textEn){
-    let myDataEn;
-  let postDataEn = window.localStorage.getItem("save");
-  if (postDataEn == null || postDataEn == '') {
-    myDataEn = textEn.innerHTML;
-      window.localStorage.setItem("save", myDataEn);
-  } else {
-      textEn.innerHTML = postDataEn;
-  }}
-
-//save En Vocab List on reload of page
-  function saveChangesEn() {
-      let textEn = document.getElementById('vocabEnContainer');
-      let myDataEn;
-      if (textEn){
-        myDataEn = textEn.innerHTML;
-      window.localStorage.setItem("save", myDataEn);
-      }
-  }
-
-//clear local storage En
-  function clearStorageEn() {
-    let textEn = document.getElementById('vocabEnContainer');
-    if (textEn){
-    let reset = textEn.innerHTML;
-    window.localStorage.clear();
-    textEn.innerHTML = reset;
-    emptyVocabList();
-}}
-
-//start of De functions
-let textDe = document.getElementById('vocabDeContainer');
-if (textDe){
-  let myDataDe;
-let postDataDe = window.localStorage.getItem("save");
-if (postDataDe == null || postDataDe == '') {
-  myDataDe = textDe.innerHTML;
-    window.localStorage.setItem("save", myDataDe);
-} else {
-    textDe.innerHTML = postDataDe;
-}}
-
-//save De Vocab List on reload of page
-function saveChangesDe() {
-      let textDe = document.getElementById('vocabDeContainer');
-      let myDataDe;
-      if (textDe){
-        myDataDe = textDe.innerHTML;
-      window.localStorage.setItem("save", myDataDe);
-      }
-  }
-
-//clear local storage De
-function clearStorageDe() {
-  let textDe = document.getElementById('vocabDeContainer');
-  if (textDe){
-  let reset = textDe.innerHTML;
-  window.localStorage.clear();
-  textDe.innerHTML = reset;
-}}
-
-//Open fullscreen
-let elem = document.documentElement as HTMLElement;
-function openFullscreen() {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } 
-}
-
-//print the vocabulary list table
-let printBtn = document.querySelector("#printBtn") as HTMLButtonElement;
-function print() {
-  window.print();
-}
-printBtn.addEventListener("click", print);
-
 //main function
 function initApp() {
     newVocabBtn.disabled = true;
@@ -212,4 +126,4 @@ function initApp() {
   
   initApp();
 
-  export { newVocabEnInput,newVocabBtn, newVocabDeInput, emptyVocabBtn, validatorMessage}
+  export { newVocabEnInput,newVocabBtn, newVocabDeInput, emptyVocabBtn}
