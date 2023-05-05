@@ -1,4 +1,8 @@
-import { newVocabEnInput ,newVocabBtn, newVocabDeInput, emptyVocabBtn, validatorMessage} from "./index";
+import { newVocabEnInput ,newVocabBtn, newVocabDeInput, emptyVocabBtn} from "./index";
+
+
+//Check if correct input or not with message
+const validatorMessage = document.querySelector("#validatorMessage") as HTMLSpanElement; 
 
 //Check if input field has an input 
 function validateInput() {
